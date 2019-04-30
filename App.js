@@ -1,12 +1,17 @@
+import React from 'react';
+
 import Screen1 from './src/components/DrawerScreens/Screen1';
 import Screen2 from './src/components/DrawerScreens/Screen2';
 import Screen3 from './src/components/DrawerScreens/Screen3';
+import { Image, TouchableOpacity } from 'react-native';
 
 import Login from './src/components/Auth/Login';
 import Detail from './src/components/Detail';
 import Feed from './src/components/Feed';
 
 import { createSwitchNavigator, createStackNavigator, createDrawerNavigator, createAppContainer } from 'react-navigation';
+
+import menuIcon from './assets/img/menu.png';
 
 const DrawerNavigator = createDrawerNavigator(
   {
@@ -45,6 +50,14 @@ const DrawerStackNavigator = createStackNavigator(
       headerStyle: { backgroundColor: 'green' },
       headerTintColor: 'white',
       title: navigation.state.routes[navigation.state.index].routeName,
+      headerLeft: (
+        <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+          <Image
+            style={{ marginLeft: 8, tintColor: 'white' }}
+            source={menuIcon}
+          />
+        </TouchableOpacity>
+      )
     })
   }
 );
