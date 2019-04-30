@@ -9,10 +9,20 @@ import Feed from './src/components/Feed';
 
 import { createSwitchNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 
-const AppStack = createStackNavigator({
-  FeedRoute: Feed,
-  DetailRoute: Detail
-});
+const AppStack = createStackNavigator(
+  {
+    FeedRoute: Feed,
+    DetailRoute: Detail
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerTintColor: 'white'
+    },
+  }
+);
 
 const AuthStack = createStackNavigator({
   LoginRoute: Login
@@ -25,6 +35,6 @@ export default createAppContainer(createSwitchNavigator(
     Auth: AuthStack,
   },
   {
-    initialRouteName: 'Auth',
-  }
+    initialRouteName: 'Auth'
+  },
 ));
