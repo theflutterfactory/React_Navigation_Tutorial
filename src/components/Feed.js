@@ -5,10 +5,6 @@ import { styles } from '../styles/styles.js'
 
 class Feed extends Component {
 
-  static navigationOptions = {
-    headerTitle: 'Feed'
-  };
-
   render() {
     return (
       <View style={styles.center}>

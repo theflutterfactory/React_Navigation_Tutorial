@@ -5,10 +5,6 @@ import { styles } from '../../styles/styles.js'
 
 class Login extends Component {
 
-  static navigationOptions = {
-    header: null
-  };
-
   render() {
     return (
       <View style={styles.center}>
