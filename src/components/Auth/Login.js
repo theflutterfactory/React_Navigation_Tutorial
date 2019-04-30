@@ -4,11 +4,19 @@ import { View, Text, Button } from 'react-native';
 import { styles } from '../../styles/styles.js'
 
 class Login extends Component {
+
+  static navigationOptions = {
+    header: null
+  };
+
   render() {
     return (
       <View style={styles.center}>
         <Text style={styles.title}>Coding with Curry</Text>
-        <Button title='Login' />
+        <Button
+          title='Login'
+          onPress={() => this.props.navigation.navigate('App')}
+        />
       </View>
     );
   }
