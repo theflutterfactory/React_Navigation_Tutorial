@@ -3,13 +3,25 @@ import React from 'react';
 import Screen1 from './src/components/DrawerScreens/Screen1';
 import Screen2 from './src/components/DrawerScreens/Screen2';
 import Screen3 from './src/components/DrawerScreens/Screen3';
+
+import Tab1 from './src/components/TabScreens/Tab1';
+import Tab2 from './src/components/TabScreens/Tab2';
+import Tab3 from './src/components/TabScreens/Tab3';
+
 import { Image, TouchableOpacity } from 'react-native';
 
 import Login from './src/components/Auth/Login';
 import Detail from './src/components/Detail';
 import Feed from './src/components/Feed';
 
-import { createSwitchNavigator, createStackNavigator, createDrawerNavigator, createAppContainer } from 'react-navigation';
+import {
+  createSwitchNavigator,
+  createStackNavigator,
+  createDrawerNavigator,
+  createAppContainer,
+  createBottomTabNavigator,
+  createMaterialTopTabNavigator
+} from 'react-navigation';
 
 import menuIcon from './assets/img/menu.png';
 
@@ -62,6 +74,36 @@ const DrawerStackNavigator = createStackNavigator(
   }
 );
 
+const TabNavigator = createBottomTabNavigator(
+  {
+    FirstTab: {
+      screen: Tab1,
+      navigationOptions: {
+        title: 'Tab 1'
+      }
+    },
+    SecondTab: {
+      screen: Tab2,
+      navigationOptions: {
+        title: 'Tab 2'
+      }
+    },
+    ThirdTab: {
+      screen: Tab3,
+      navigationOptions: {
+        title: 'Tab 3'
+      }
+    },
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      headerStyle: { backgroundColor: 'green' },
+      title: 'Menus',
+      headerTintColor: 'white',
+    })
+  }
+)
+
 const AppNavigator = createStackNavigator(
   {
     DrawerRoute: {
@@ -70,7 +112,8 @@ const AppNavigator = createStackNavigator(
         header: null
       })
     },
-    DetailRoute: Detail
+    DetailRoute: Detail,
+    TabRoute: TabNavigator
   }
 );
 
