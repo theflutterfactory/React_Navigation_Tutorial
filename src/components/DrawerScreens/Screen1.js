@@ -7,7 +7,7 @@ class Screen1 extends Component {
   render() {
     return (
       <View style={styles.center}>
-        <Text>Screen 1</Text>
+        <Text style={styles.title}>Screen 1</Text>
       </View>
     );
   }
